@@ -17,15 +17,7 @@ RUN mkdir ~/Src && \
     mv -T cfe-3.3.src llvm-3.3.src/tools/clang && \
     mkdir llvm-3.3.build && \
     cd llvm-3.3.build && \
-    cmake && \
-       -D CMAKE_BUILD_TYPE=Debug                               \
-       -D LLVM_REQUIRES_RTTI=1                                 \
-       -D LLVM_TARGETS_TO_BUILD="X86;Sparc;ARM"                \
-       -D BUILD_SHARED_LIBS=1                                  \
-       -D LLVM_INCLUDE_EXAMPLES=0                              \
-       -D LLVM_INCLUDE_TESTS=0                                 \
-       -D CMAKE_INSTALL_PREFIX=~/Lib/llvm-3.3.install          \
-        ../llvm-3.3.src && \
+    cmake && -D CMAKE_BUILD_TYPE=Debug -D LLVM_REQUIRES_RTTI=1 -D LLVM_TARGETS_TO_BUILD="X86;Sparc;ARM" -D BUILD_SHARED_LIBS=1 -D LLVM_INCLUDE_EXAMPLES=0 -D LLVM_INCLUDE_TESTS=0 -D CMAKE_INSTALL_PREFIX=~/Lib/llvm-3.3.install ../llvm-3.3.src && \
     make  && \
     make install
 
